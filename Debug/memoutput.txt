@@ -1,0 +1,201 @@
+==13583== Memcheck, a memory error detector
+==13583== Copyright (C) 2002-2009, and GNU GPL'd, by Julian Seward et al.
+==13583== Using Valgrind-3.5.0-Debian and LibVEX; rerun with -h for copyright info
+==13583== Command: ./MailServer -p 11000 -s 2525
+==13583== Parent PID: 7715
+==13583== 
+--13583-- 
+--13583-- Valgrind options:
+--13583--    --suppressions=/usr/lib/valgrind/debian-libc6-dbg.supp
+--13583--    --leak-check=full
+--13583--    -v
+--13583--    --track-origins=yes
+--13583--    --log-file=memoutput.txt
+--13583-- Contents of /proc/version:
+--13583--   Linux version 2.6.31-20-generic (buildd@crested) (gcc version 4.4.1 (Ubuntu 4.4.1-4ubuntu8) ) #58-Ubuntu SMP Fri Mar 12 04:38:19 UTC 2010
+--13583-- Arch and hwcaps: AMD64, amd64-sse3-cx16
+--13583-- Page sizes: currently 4096, max supported 4096
+--13583-- Valgrind library directory: /usr/lib/valgrind
+--13583-- Reading syms from /home/antall/workspace/MailServer/Debug/MailServer (0x400000)
+--13583-- Reading syms from /lib/ld-2.10.1.so (0x4000000)
+--13583-- Reading debug info from /lib/ld-2.10.1.so ..
+--13583-- .. CRC mismatch (computed 766efb39 wanted 5dced8e1)
+--13583-- Reading debug info from /usr/lib/debug/lib/ld-2.10.1.so ..
+--13583-- Reading syms from /usr/lib/valgrind/memcheck-amd64-linux (0x38000000)
+--13583--    object doesn't have a dynamic symbol table
+--13583-- Reading suppressions file: /usr/lib/valgrind/debian-libc6-dbg.supp
+--13583-- Reading suppressions file: /usr/lib/valgrind/default.supp
+--13583-- REDIR: 0x4017050 (strlen) redirected to 0x3803fa17 (vgPlain_amd64_linux_REDIR_FOR_strlen)
+--13583-- Reading syms from /usr/lib/valgrind/vgpreload_core-amd64-linux.so (0x4a20000)
+--13583-- Reading syms from /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so (0x4c22000)
+==13583== WARNING: new redirection conflicts with existing -- ignoring it
+--13583--     new: 0x04017050 (strlen              ) R-> 0x04c26210 strlen
+--13583-- REDIR: 0x4016ec0 (index) redirected to 0x4c25f60 (index)
+--13583-- REDIR: 0x4016f40 (strcmp) redirected to 0x4c26510 (strcmp)
+--13583-- Reading syms from /usr/lib/libsqlite3.so.0.8.6 (0x4e2a000)
+--13583-- Reading debug info from /usr/lib/libsqlite3.so.0.8.6 ..
+--13583-- .. CRC mismatch (computed d9505b4e wanted f6bd3c5b)
+--13583--    object doesn't have a symbol table
+--13583-- Reading syms from /lib/libc-2.10.1.so (0x50b2000)
+--13583-- Reading debug info from /lib/libc-2.10.1.so ..
+--13583-- .. CRC mismatch (computed e2035481 wanted a2d8b96b)
+--13583-- Reading debug info from /usr/lib/debug/lib/libc-2.10.1.so ..
+--13583-- Reading syms from /lib/libpthread-2.10.1.so (0x5421000)
+--13583-- Reading debug info from /lib/libpthread-2.10.1.so ..
+--13583-- .. CRC mismatch (computed 6713bb16 wanted 0cf3f723)
+--13583-- Reading debug info from /usr/lib/debug/lib/libpthread-2.10.1.so ..
+--13583-- Reading syms from /lib/libdl-2.10.1.so (0x563d000)
+--13583-- Reading debug info from /lib/libdl-2.10.1.so ..
+--13583-- .. CRC mismatch (computed 3a54c6e5 wanted b61e6449)
+--13583-- Reading debug info from /usr/lib/debug/lib/libdl-2.10.1.so ..
+--13583-- REDIR: 0x5131860 (rindex) redirected to 0x4c25dc0 (rindex)
+--13583-- REDIR: 0x5131430 (strlen) redirected to 0x4c261d0 (strlen)
+--13583-- REDIR: 0x512c7c0 (malloc) redirected to 0x4c250d1 (malloc)
+--13583-- REDIR: 0x51330a0 (memset) redirected to 0x4c27080 (memset)
+--13583-- REDIR: 0x512c6e0 (free) redirected to 0x4c24ce1 (free)
+--13583-- REDIR: 0x5134540 (memcpy) redirected to 0x4c265e0 (memcpy)
+--13583-- REDIR: 0x512bdb0 (calloc) redirected to 0x4c243c9 (calloc)
+--13583-- REDIR: 0x5131600 (strncmp) redirected to 0x4c26450 (strncmp)
+--13583-- REDIR: 0x51329d0 (bcmp) redirected to 0x4c26d70 (bcmp)
+--13583-- REDIR: 0x5133bd0 (mempcpy) redirected to 0x4c271b0 (mempcpy)
+--13583-- REDIR: 0x5136f10 (strchrnul) redirected to 0x4c27160 (strchrnul)
+==13583== Syscall param write(buf) points to uninitialised byte(s)
+==13583==    at 0x5183B3B: ??? (in /lib/libc-2.10.1.so)
+==13583==    by 0x4E4788D: ??? (in /usr/lib/libsqlite3.so.0.8.6)
+==13583==    by 0x4E5718D: ??? (in /usr/lib/libsqlite3.so.0.8.6)
+==13583==    by 0x4E5726A: ??? (in /usr/lib/libsqlite3.so.0.8.6)
+==13583==    by 0x4E5AA6E: ??? (in /usr/lib/libsqlite3.so.0.8.6)
+==13583==    by 0x4E90BDA: ??? (in /usr/lib/libsqlite3.so.0.8.6)
+==13583==    by 0x4E7FF1F: sqlite3_step (in /usr/lib/libsqlite3.so.0.8.6)
+==13583==    by 0x4E839A5: sqlite3_exec (in /usr/lib/libsqlite3.so.0.8.6)
+==13583==    by 0x403AF5: add_user (SqliteConnector.c:70)
+==13583==    by 0x403A98: setupDB (SqliteConnector.c:59)
+==13583==    by 0x4011DB: main (MailServer.c:22)
+==13583==  Address 0x5842359 is 9 bytes inside a block of size 1,032 alloc'd
+==13583==    at 0x4C25153: malloc (vg_replace_malloc.c:195)
+==13583==    by 0x4E47151: ??? (in /usr/lib/libsqlite3.so.0.8.6)
+==13583==    by 0x4E32B68: ??? (in /usr/lib/libsqlite3.so.0.8.6)
+==13583==    by 0x4E32C37: ??? (in /usr/lib/libsqlite3.so.0.8.6)
+==13583==    by 0x4E3416A: ??? (in /usr/lib/libsqlite3.so.0.8.6)
+==13583==    by 0x4E34285: ??? (in /usr/lib/libsqlite3.so.0.8.6)
+==13583==    by 0x4E3E5D6: ??? (in /usr/lib/libsqlite3.so.0.8.6)
+==13583==    by 0x4E6A258: ??? (in /usr/lib/libsqlite3.so.0.8.6)
+==13583==    by 0x4E6B4B7: ??? (in /usr/lib/libsqlite3.so.0.8.6)
+==13583==    by 0x403E28: getConnection (SqliteConnector.c:169)
+==13583==    by 0x40399B: setupDB (SqliteConnector.c:34)
+==13583==    by 0x4011DB: main (MailServer.c:22)
+==13583==  Uninitialised value was created by a heap allocation
+==13583==    at 0x4C25153: malloc (vg_replace_malloc.c:195)
+==13583==    by 0x4E47151: ??? (in /usr/lib/libsqlite3.so.0.8.6)
+==13583==    by 0x4E32B68: ??? (in /usr/lib/libsqlite3.so.0.8.6)
+==13583==    by 0x4E32C37: ??? (in /usr/lib/libsqlite3.so.0.8.6)
+==13583==    by 0x4E3416A: ??? (in /usr/lib/libsqlite3.so.0.8.6)
+==13583==    by 0x4E34285: ??? (in /usr/lib/libsqlite3.so.0.8.6)
+==13583==    by 0x4E3E5D6: ??? (in /usr/lib/libsqlite3.so.0.8.6)
+==13583==    by 0x4E6A258: ??? (in /usr/lib/libsqlite3.so.0.8.6)
+==13583==    by 0x4E6B4B7: ??? (in /usr/lib/libsqlite3.so.0.8.6)
+==13583==    by 0x403E28: getConnection (SqliteConnector.c:169)
+==13583==    by 0x40399B: setupDB (SqliteConnector.c:34)
+==13583==    by 0x4011DB: main (MailServer.c:22)
+==13583== 
+--13583-- REDIR: 0x5130ee0 (strcpy) redirected to 0x4c26230 (strcpy)
+==13583== Invalid read of size 1
+==13583==    at 0x4C26237: strcpy (mc_replace_strmem.c:303)
+==13583==    by 0x4038D9: readClient (Server.c:89)
+==13583==    by 0x4012F1: processPOPClientRequest (POP3Processor.c:23)
+==13583==    by 0x40265C: startPOP3Server (POP3Server.c:28)
+==13583==    by 0x4011EF: main (MailServer.c:26)
+==13583==  Address 0x0 is not stack'd, malloc'd or (recently) free'd
+==13583== 
+==13583== 
+==13583== Process terminating with default action of signal 11 (SIGSEGV)
+==13583==  Access not within mapped region at address 0x0
+==13583==    at 0x4C26237: strcpy (mc_replace_strmem.c:303)
+==13583==    by 0x4038D9: readClient (Server.c:89)
+==13583==    by 0x4012F1: processPOPClientRequest (POP3Processor.c:23)
+==13583==    by 0x40265C: startPOP3Server (POP3Server.c:28)
+==13583==    by 0x4011EF: main (MailServer.c:26)
+==13583==  If you believe this happened as a result of a stack
+==13583==  overflow in your program's main thread (unlikely but
+==13583==  possible), you can try to increase the size of the
+==13583==  main thread stack using the --main-stacksize= flag.
+==13583==  The main thread stack size used in this run was 8388608.
+==13583== 
+==13583== HEAP SUMMARY:
+==13583==     in use at exit: 1 bytes in 1 blocks
+==13583==   total heap usage: 208 allocs, 207 frees, 142,537 bytes allocated
+==13583== 
+==13583== Searching for pointers to 1 not-freed blocks
+==13583== Checked 108,240 bytes
+==13583== 
+==13583== 1 bytes in 1 blocks are definitely lost in loss record 1 of 1
+==13583==    at 0x4C25153: malloc (vg_replace_malloc.c:195)
+==13583==    by 0x40386C: readClient (Server.c:81)
+==13583==    by 0x4012F1: processPOPClientRequest (POP3Processor.c:23)
+==13583==    by 0x40265C: startPOP3Server (POP3Server.c:28)
+==13583==    by 0x4011EF: main (MailServer.c:26)
+==13583== 
+==13583== LEAK SUMMARY:
+==13583==    definitely lost: 1 bytes in 1 blocks
+==13583==    indirectly lost: 0 bytes in 0 blocks
+==13583==      possibly lost: 0 bytes in 0 blocks
+==13583==    still reachable: 0 bytes in 0 blocks
+==13583==         suppressed: 0 bytes in 0 blocks
+==13583== 
+==13583== ERROR SUMMARY: 5 errors from 3 contexts (suppressed: 4 from 4)
+==13583== 
+==13583== 1 errors in context 1 of 3:
+==13583== Invalid read of size 1
+==13583==    at 0x4C26237: strcpy (mc_replace_strmem.c:303)
+==13583==    by 0x4038D9: readClient (Server.c:89)
+==13583==    by 0x4012F1: processPOPClientRequest (POP3Processor.c:23)
+==13583==    by 0x40265C: startPOP3Server (POP3Server.c:28)
+==13583==    by 0x4011EF: main (MailServer.c:26)
+==13583==  Address 0x0 is not stack'd, malloc'd or (recently) free'd
+==13583== 
+==13583== 
+==13583== 3 errors in context 2 of 3:
+==13583== Syscall param write(buf) points to uninitialised byte(s)
+==13583==    at 0x5183B3B: ??? (in /lib/libc-2.10.1.so)
+==13583==    by 0x4E4788D: ??? (in /usr/lib/libsqlite3.so.0.8.6)
+==13583==    by 0x4E5718D: ??? (in /usr/lib/libsqlite3.so.0.8.6)
+==13583==    by 0x4E5726A: ??? (in /usr/lib/libsqlite3.so.0.8.6)
+==13583==    by 0x4E5AA6E: ??? (in /usr/lib/libsqlite3.so.0.8.6)
+==13583==    by 0x4E90BDA: ??? (in /usr/lib/libsqlite3.so.0.8.6)
+==13583==    by 0x4E7FF1F: sqlite3_step (in /usr/lib/libsqlite3.so.0.8.6)
+==13583==    by 0x4E839A5: sqlite3_exec (in /usr/lib/libsqlite3.so.0.8.6)
+==13583==    by 0x403AF5: add_user (SqliteConnector.c:70)
+==13583==    by 0x403A98: setupDB (SqliteConnector.c:59)
+==13583==    by 0x4011DB: main (MailServer.c:22)
+==13583==  Address 0x5842359 is 9 bytes inside a block of size 1,032 alloc'd
+==13583==    at 0x4C25153: malloc (vg_replace_malloc.c:195)
+==13583==    by 0x4E47151: ??? (in /usr/lib/libsqlite3.so.0.8.6)
+==13583==    by 0x4E32B68: ??? (in /usr/lib/libsqlite3.so.0.8.6)
+==13583==    by 0x4E32C37: ??? (in /usr/lib/libsqlite3.so.0.8.6)
+==13583==    by 0x4E3416A: ??? (in /usr/lib/libsqlite3.so.0.8.6)
+==13583==    by 0x4E34285: ??? (in /usr/lib/libsqlite3.so.0.8.6)
+==13583==    by 0x4E3E5D6: ??? (in /usr/lib/libsqlite3.so.0.8.6)
+==13583==    by 0x4E6A258: ??? (in /usr/lib/libsqlite3.so.0.8.6)
+==13583==    by 0x4E6B4B7: ??? (in /usr/lib/libsqlite3.so.0.8.6)
+==13583==    by 0x403E28: getConnection (SqliteConnector.c:169)
+==13583==    by 0x40399B: setupDB (SqliteConnector.c:34)
+==13583==    by 0x4011DB: main (MailServer.c:22)
+==13583==  Uninitialised value was created by a heap allocation
+==13583==    at 0x4C25153: malloc (vg_replace_malloc.c:195)
+==13583==    by 0x4E47151: ??? (in /usr/lib/libsqlite3.so.0.8.6)
+==13583==    by 0x4E32B68: ??? (in /usr/lib/libsqlite3.so.0.8.6)
+==13583==    by 0x4E32C37: ??? (in /usr/lib/libsqlite3.so.0.8.6)
+==13583==    by 0x4E3416A: ??? (in /usr/lib/libsqlite3.so.0.8.6)
+==13583==    by 0x4E34285: ??? (in /usr/lib/libsqlite3.so.0.8.6)
+==13583==    by 0x4E3E5D6: ??? (in /usr/lib/libsqlite3.so.0.8.6)
+==13583==    by 0x4E6A258: ??? (in /usr/lib/libsqlite3.so.0.8.6)
+==13583==    by 0x4E6B4B7: ??? (in /usr/lib/libsqlite3.so.0.8.6)
+==13583==    by 0x403E28: getConnection (SqliteConnector.c:169)
+==13583==    by 0x40399B: setupDB (SqliteConnector.c:34)
+==13583==    by 0x4011DB: main (MailServer.c:22)
+==13583== 
+--13583-- 
+--13583-- used_suppression:      2 Debian libc6 (2.10.x) stripped dynamic linker
+--13583-- used_suppression:      2 Debian libc6 (2.10.x) stripped dynamic linker
+==13583== 
+==13583== ERROR SUMMARY: 5 errors from 3 contexts (suppressed: 4 from 4)

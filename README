@@ -1,0 +1,36 @@
+USAGE:
+=======
+./MailServer -p <pop3 port> -s <smtp port>
+
+TO COMPILE: 
+===========
+run the "make" command from the Build directory. Use the "make clean" command to remove previous compiled files.
+
+
+This is an iterative server that processes SMTP as well as POP3 commands. The break down of the project is as follows.
+
+README
+======
+MailServer.c is the main driving program. This instantiates two servers namely the POP3 server and the SMTP server. There is a POP3 server component and a SMTP server component that just starts the corresponding server and waits for client connections. All processing of incoming client requests are then handled by respective POP3 Processor components(POP3Processor.c and POP3Processor.h) and SMTP processor components(SMTPProcessor.c and SMTPProcessor.h). These processors interpret the client requests and then accordingly serve those requests. The processor components communicate with the clients through the server component that understand reading and writing from sockets as well as setting up sockets from listening. The processor components also communicate to the backend through the dbConnector interface (SqliteConnector.c and SqliteConnector.h)
+
+USER CREATED (username/password)
+admin/admin
+uone/welcome
+utwo/welcome
+
+NOTE TO KILL THE RESPECTIVE SERVERS CONNECT TO THE SERVER AND ENTER THE "KILL" COMMAND.
+
+../MailServer.c \
+../POP3Processor.c \
+../POP3Server.c \
+../SMTPProcessor.c \
+../SMTPServer.c \
+../Server.c \
+../SqliteConnector.c \
+../stringProcessor.c 
+
+
+Team Members
+============
+Sheetal Ramesh Tatiya
+Antall Fernandes
